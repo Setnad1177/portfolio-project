@@ -27,7 +27,7 @@ export const Main = () => {
 
 const StyledMain = styled.div`
     min-height: 80vh;
-    background-color: #1F1F20;
+    background-color: ${theme.colors.secondaryBg};
     display: flex;
 `
 const PhotoWrapper = styled.div`
