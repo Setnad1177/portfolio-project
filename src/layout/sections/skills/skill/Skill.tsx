@@ -17,6 +17,7 @@ export const Skill = (props: SkillPropsType) => {
                 <S.IconWrapper>
                     <Icon iconId={props.iconId}/>
                 </S.IconWrapper>
+
                 <S.SkillTitle>{props.title}</S.SkillTitle>
                  <S.SkillText>{props.description}</S.SkillText>
             </FlexWrapper>
