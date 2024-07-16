@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SectionTitle} from "../../../components/SectionTitle";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Work} from "./work/Work";
@@ -10,7 +10,7 @@ import {S} from "./Works_Styles"
 
 //const tabsItems = ["All", "Landing Page", "React", "spa"]
 
-const tabsItems: Array<{status: "all" | "react" | "spa", title: string}> = [
+const tabsItems: Array<{ status: "all" | "react" | "spa", title: string }> = [
     {
         title: "All",
         status: "all"
@@ -19,14 +19,14 @@ const tabsItems: Array<{status: "all" | "react" | "spa", title: string}> = [
         title: "All",
         status: "react"
     },
-{
+    {
         title: "spa",
         status: "spa"
     },
 
 ]
 
-const workData = [
+const worksData = [
     {
         title: "Social Network",
         src: socialImg,
@@ -43,14 +43,30 @@ const workData = [
 ]
 
 export const Works: React.FC = () => {
+
+    let [currentFilterStatus, setCurrentFilterStatus] = useState("all")
+    let filteredWorks = worksData
+
+    if (currentFilterStatus === "react") {
+        filteredWorks = worksData.filter(work => work.type === "react")
+    }
+
+    if (currentFilterStatus === "spa") {
+        filteredWorks = worksData.filter(work => work.type === "spa")
+    }
+
+    function changeFilterStatus(value: "all" | "react" | "spa") {
+        setCurrentFilterStatus(value)
+    }
+
     return (
         <S.Works>
             <Container>
                 <SectionTitle>My Works</SectionTitle>
-                <TabMenu tabsItems={tabsItems}/>
+                <TabMenu tabsItems={tabsItems} changeFilterStatus={changeFilterStatus}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
 
-                    {workData.map((w) => {
+                    {filteredWorks.map((w) => {
                         return <Work title={w.title}
                                      src={w.src}
                                      text={w.text}/>
