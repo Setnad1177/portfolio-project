@@ -6,13 +6,13 @@ type MenuPropsType = {
     menuItems: Array<string>;
 }
 
-export const TabMenu = (props: { menuItems: Array<string>; }) => {
+export const TabMenu = (props: { tabsItems: Array<{status: "all" | "react" | "spa", title: string}>; }) => {
     return (
         <StyledTabMenu>
             <ul>
 
-                {props.menuItems.map((item, index) => {
-                    return <ListItem key={index}><Link href="">{item}</Link></ListItem>
+                {props.tabsItems.map((item, index) => {
+                    return <ListItem key={index}><Link href="">{item.title}</Link></ListItem>
                 })}
             </ul>
         </StyledTabMenu>

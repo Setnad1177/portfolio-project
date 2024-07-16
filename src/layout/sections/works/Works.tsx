@@ -8,19 +8,37 @@ import {Container} from "../../../components/Container";
 import {TabMenu} from "./tabMenu/TabMenu";
 import {S} from "./Works_Styles"
 
-const worksItems = ["All", "Landing Page", "React", "SPA"]
+//const tabsItems = ["All", "Landing Page", "React", "spa"]
+
+const tabsItems: Array<{status: "all" | "react" | "spa", title: string}> = [
+    {
+        title: "All",
+        status: "all"
+    },
+    {
+        title: "All",
+        status: "react"
+    },
+{
+        title: "spa",
+        status: "spa"
+    },
+
+]
 
 const workData = [
     {
         title: "Social Network",
         src: socialImg,
-        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "spa",
     },
 
     {
         title: "Timer",
         src: timerImg,
-        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "react",
     },
 ]
 
@@ -29,7 +47,7 @@ export const Works: React.FC = () => {
         <S.Works>
             <Container>
                 <SectionTitle>My Works</SectionTitle>
-                <TabMenu menuItems={worksItems}/>
+                <TabMenu tabsItems={tabsItems}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
 
                     {workData.map((w) => {
@@ -44,4 +62,3 @@ export const Works: React.FC = () => {
         </S.Works>
     );
 };
-
