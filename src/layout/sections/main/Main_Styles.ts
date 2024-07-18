@@ -6,10 +6,15 @@ const Main = styled.div`
     min-height: 80vh;
     background-color: ${theme.colors.secondaryBg};
     display: flex;
+    
+    @media ${theme.media.mobile} {
+        padding-top: 140px;
+    }
 `
 const PhotoWrapper = styled.div`
     position: relative;
     z-index: 0;
+    margin-top: 110px;
     
     &::before {
         content: "";
