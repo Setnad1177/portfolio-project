@@ -70,5 +70,8 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
         line-height: 1.4;
     }
-
+    
+    //.skills {
+    //    scroll-behavior: smooth;
+    //}
 `

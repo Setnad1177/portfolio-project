@@ -4,6 +4,7 @@ import {SectionTitle} from '../../../components/SectionTitle';
 import {Skill} from './skill/Skill';
 import {Container} from "../../../components/Container";
 import {S} from './Skills_Styles'
+import styled from "styled-components";
 
 
 const skillData = [
@@ -38,7 +39,6 @@ const skillData = [
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"
     }
 ]
-
 
 export const Skills = () => {
     return (

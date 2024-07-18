@@ -10,7 +10,7 @@ const Skill = styled.div`
     width: 330px;
     flex-grow: 1;
     padding: 42px 20px 52px;
-
+    
     @media ${theme.media.mobile} {
         padding: 62px 0 40px;
     }
