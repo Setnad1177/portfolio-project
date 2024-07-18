@@ -1,9 +1,8 @@
 import React from 'react';
-import {S} from  './../HeaderMenu_Styles';
+import {S} from './../HeaderMenu_Styles';
 
 
 // const items = ["Home", "Skills", "Works", "Testimony", "Contact"]
-
 
 
 const items = [
@@ -35,8 +34,10 @@ export const Menu: React.FC = () => {
             {items.map((item, index) => {
                 return <S.MenuItem key={index}>
                     <S.NavLink
+                        activeClass="active"
                         to={item.href}
                         smooth={true}
+                        spy={true}
 
                     >
                         {item.title}

@@ -4,12 +4,9 @@ import {Link} from "react-scroll";
 
 
 // Menu
-const NavLink = styled(Link)`
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    text-align: center;
-    color: transparent;
+
+const MenuItem = styled.li`
+    position: relative;
 `
 
 const Mask = styled.span`
@@ -19,7 +16,7 @@ const Mask = styled.span`
     display: inline-block;
     height: 50%;
     overflow-y: hidden;
-   // outline: 1px solid red;
+    // outline: 1px solid red;
     color: ${theme.colors.accent};
 
     & + & {
@@ -32,8 +29,13 @@ const Mask = styled.span`
     }
 `
 
-const MenuItem = styled.li`
-    position: relative;
+
+const NavLink = styled(Link)`
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: transparent;
 
     &::before {
         content: "";
@@ -50,7 +52,7 @@ const MenuItem = styled.li`
         transform: scale(0);
     }
 
-    &:hover {
+    &:hover, &.active {
         &::before {
             transform: scale(1);
         }
@@ -68,12 +70,13 @@ const MenuItem = styled.li`
     }
 `
 
+
 // Mobile menu
 
 
 const MobileMenu = styled.nav`
-    
-    
+
+
 `
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     position: fixed;
@@ -116,11 +119,10 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
         position: absolute;
         left: 40px;
         bottom: 50px;
-  
+
         ${props => props.isOpen && css<{ isOpen: boolean }>`
             background-color: rgba(255, 255, 255, 0);
         `}
-        
         &::before {
             content: "";
             display: block;
@@ -132,8 +134,8 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
 
             ${props => props.isOpen && css<{ isOpen: boolean }>`
                 transform: rotate(-45deg) translateY(0px);
-        `}
-            
+            `}
+
         }
 
         &::after {
@@ -148,8 +150,8 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
             ${props => props.isOpen && css<{ isOpen: boolean }>`
                 transform: rotate(45deg) translateY(0px);
                 width: 36px;
-        `}
-            
+            `}
+
         }
     }
 `
@@ -163,7 +165,7 @@ const DesktopMenu = styled.nav`
         gap: 30px;
         justify-content: center;
     }
-    
+
 `
 
 export const S = {
