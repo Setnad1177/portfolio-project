@@ -73,7 +73,7 @@ const NavLink = styled(Link)`
 `
 
 
-// Mobile menu
+// Mobile menu //transition: ${theme.animations.transition};
 
 
 const MobileMenu = styled.nav`
@@ -88,20 +88,31 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     bottom: 0;
     z-index: 999999;
     background-color: rgba(31, 31, 32, 0.9);
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: 1s ease-in-out;
 
-    ${props => props.isOpen && css<{ isOpen: boolean }>`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `}
+    
     ul {
         display: flex;
         gap: 30px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        transition: 1s ease-in-out;
     }
+
+    ${props => props.isOpen && css<{ isOpen: boolean }>`
+        transform: translateY(0);
+    
+    & ul {
+        gap: 40px;
+    }
+    
+    `}
+    
 `
 
 
