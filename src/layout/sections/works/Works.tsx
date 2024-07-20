@@ -7,6 +7,7 @@ import timerImg from "../../../assets/images/proj-2.webp";
 import {Container} from "../../../components/Container";
 import {TabMenu, TabsStatusType} from "./tabMenu/TabMenu";
 import {S} from "./Works_Styles"
+import {AnimatePresence, motion} from "framer-motion";
 
 const tabsItems: Array<{ status: TabsStatusType, title: string }> = [
     {
@@ -61,14 +62,17 @@ export const Works: React.FC = () => {
         <S.Works id={"works"}>
             <Container>
                 <SectionTitle>My Works</SectionTitle>
-                <TabMenu tabsItems={tabsItems} changeFilterStatus={changeFilterStatus} currentFilterStatus={currentFilterStatus}/>
+                <TabMenu tabsItems={tabsItems} changeFilterStatus={changeFilterStatus}
+                         currentFilterStatus={currentFilterStatus}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
 
-                    {filteredWorks.map((w) => {
-                        return <Work title={w.title}
-                                     src={w.src}
-                                     text={w.text}/>
-                    })}
+                    <AnimatePresence>
+                        {filteredWorks.map((w) => {
+                            return <Work title={w.title}
+                                         src={w.src}
+                                         text={w.text}/>
+                        })}
+                    </AnimatePresence>
 
                 </FlexWrapper>
             </Container>
