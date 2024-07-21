@@ -31,6 +31,7 @@ const worksData = [
         src: socialImg,
         text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
         type: "spa",
+        id: 1,
     },
 
     {
@@ -38,7 +39,39 @@ const worksData = [
         src: timerImg,
         text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
         type: "react",
+        id: 2,
     },
+    {
+        title: "Social Network",
+        src: socialImg,
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "spa",
+        id: 3,
+    },
+
+    {
+        title: "Timer",
+        src: timerImg,
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "react",
+        id: 4,
+    },
+    {
+        title: "Social Network",
+        src: socialImg,
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "spa",
+        id: 5,
+    },
+
+    {
+        title: "Timer",
+        src: timerImg,
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim",
+        type: "react",
+        id: 6,
+    },
+
 ]
 
 export const Works: React.FC = () => {
@@ -68,9 +101,21 @@ export const Works: React.FC = () => {
 
                     <AnimatePresence>
                         {filteredWorks.map((w) => {
-                            return <Work title={w.title}
-                                         src={w.src}
-                                         text={w.text}/>
+                            return (
+                                <motion.div style={{width: "400px", flexGrow: 1, maxWidth: "540px"}}
+                                    layout
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    key={w.id}
+                                >
+                                    <Work title={w.title}
+                                          src={w.src}
+                                          text={w.text}
+                                          key={w.id}
+                                    />
+                                </motion.div>
+                            )
                         })}
                     </AnimatePresence>
 
